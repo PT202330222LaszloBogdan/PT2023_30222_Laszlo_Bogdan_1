@@ -6,7 +6,6 @@ import com.example.pt2023_3022_laszlo_bogdan_1.Polynomial;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -46,6 +45,11 @@ public class TestOp {
     @Test
     public void subTest(){
         try{
+            pol1.addMonom(new Monomial(2,6.0));
+            pol1.addMonom(new Monomial(1,-3.0));
+            pol1.addMonom(new Monomial(0,4.0));
+            pol2.addMonom(new Monomial(1,5.0));
+            pol2.addMonom(new Monomial(0,-3.0));
             polRes.addMonom(new Monomial(0,7.0));
             polRes.addMonom(new Monomial(1,-8.0));
             polRes.addMonom(new Monomial(2,6.0));
@@ -58,6 +62,11 @@ public class TestOp {
     @Test
     public void mulTest() {
         try {
+            pol1.addMonom(new Monomial(2,6.0));
+            pol1.addMonom(new Monomial(1,-3.0));
+            pol1.addMonom(new Monomial(0,4.0));
+            pol2.addMonom(new Monomial(1,5.0));
+            pol2.addMonom(new Monomial(0,-3.0));
             polRes.addMonom(new Monomial(0, -12.0));
             polRes.addMonom(new Monomial(1, 20.0));
             polRes.addMonom(new Monomial(2, -15.0));
@@ -71,6 +80,9 @@ public class TestOp {
     @Test
     public void derivTest(){
         try{
+            pol1.addMonom(new Monomial(2,6.0));
+            pol1.addMonom(new Monomial(1,-3.0));
+            pol1.addMonom(new Monomial(0,4.0));
             polRes.addMonom(new Monomial(1,12.0));
             polRes.addMonom(new Monomial(0,-3.0));
             pol=op.derivPol(pol1);
@@ -82,8 +94,11 @@ public class TestOp {
     @Test
     public void badDerivTest(){
         try{
+            pol1.addMonom(new Monomial(2,6.0));
+            pol1.addMonom(new Monomial(1,-3.0));
+            pol1.addMonom(new Monomial(0,4.0));
             polRes.addMonom(new Monomial(1,12.0));
-            polRes.addMonom(new Monomial(0,-3.0));
+            polRes.addMonom(new Monomial(0,-5.0));
         } catch (IllegalArgumentException e){
             throw new RuntimeException();
         }
