@@ -1,8 +1,8 @@
 package test.java;
 
-import com.example.pt2023_3022_laszlo_bogdan_1.Monomial;
-import com.example.pt2023_3022_laszlo_bogdan_1.Operation;
-import com.example.pt2023_3022_laszlo_bogdan_1.Polynomial;
+import com.example.pt2023_3022_laszlo_bogdan_1.App.Monomial;
+import com.example.pt2023_3022_laszlo_bogdan_1.Interfata.Operation;
+import com.example.pt2023_3022_laszlo_bogdan_1.App.Polynomial;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -40,7 +40,8 @@ public class TestOp {
         }catch (Exception e){
             throw new RuntimeException();
         }
-        assertEquals(polRes,pol);
+        assertEquals(polRes.toString()
+                ,pol.toString());
     }
     @Test
     public void subTest(){
@@ -57,11 +58,10 @@ public class TestOp {
         } catch (Exception e){
             throw new RuntimeException();
         }
-        assertEquals(polRes,pol);
+        assertEquals(polRes.toString(),pol.toString());
     }
     @Test
     public void mulTest() {
-        try {
             pol1.addMonom(new Monomial(2,6.0));
             pol1.addMonom(new Monomial(1,-3.0));
             pol1.addMonom(new Monomial(0,4.0));
@@ -72,10 +72,8 @@ public class TestOp {
             polRes.addMonom(new Monomial(2, -15.0));
             polRes.addMonom(new Monomial(3, 30.0));
             pol = op.mulPol(pol1, pol2);
-        } catch (Exception e) {
-            throw new RuntimeException();
-        }
-        assertEquals(polRes, pol);
+
+        assertEquals(polRes.toString(), pol.toString());
     }
     @Test
     public void derivTest(){
@@ -89,7 +87,7 @@ public class TestOp {
         } catch (Exception e){
             throw new RuntimeException();
         }
-        Assertions.assertEquals(polRes,pol);
+        Assertions.assertEquals(polRes.toString(),pol.toString());
     }
     @Test
     public void badDerivTest(){
@@ -102,7 +100,7 @@ public class TestOp {
         } catch (IllegalArgumentException e){
             throw new RuntimeException();
         }
-        assertEquals(polRes,op.derivPol(pol1));
+        assertEquals(polRes.toString(),op.derivPol(pol1).toString());
     }
 
 }

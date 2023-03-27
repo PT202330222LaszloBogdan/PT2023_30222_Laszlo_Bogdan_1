@@ -1,4 +1,6 @@
-package com.example.pt2023_3022_laszlo_bogdan_1;
+package com.example.pt2023_3022_laszlo_bogdan_1.Interfata;
+
+import com.example.pt2023_3022_laszlo_bogdan_1.App.Polynomial;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -15,7 +17,7 @@ public class View extends JFrame{
     private JButton clear=new JButton("Clear");
     private JTextField total=new JTextField(20);
 
-    View(){
+    public View(){
         JPanel panelText=new JPanel();
         JPanel panelBtn=new JPanel();
         JPanel panelRes=new JPanel();

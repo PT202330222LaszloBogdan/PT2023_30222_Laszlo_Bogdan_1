@@ -1,12 +1,22 @@
-package com.example.pt2023_3022_laszlo_bogdan_1;
+package com.example.pt2023_3022_laszlo_bogdan_1.App;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class Polynomial {
-    HashMap<Integer,Double> polinom=new HashMap<>();
+    private HashMap<Integer,Double> polinom=new HashMap<>();
+
+    public HashMap<Integer, Double> getPolinom() {
+        return polinom;
+    }
+
+    public void setPolinom(HashMap<Integer, Double> polinom) {
+        this.polinom = polinom;
+    }
+
     Pattern pattern=Pattern.compile("(\\W?)(\\d{0,9}.\\d{0,9})(x\\^)(\\d{0,9})");
     public Polynomial(){
     }
@@ -14,7 +24,7 @@ public class Polynomial {
         this.polinom.put(mon.getPow(), mon.getCoeff());
     }
     public void createPol(String input){
-        if(!verifInput(input)) throw  new IllegalArgumentException("Bad Input");
+        //if(!verifInput(input)) throw  new IllegalArgumentException("Bad Input");1.0x^5-3.0x^3+2.0x^1-3.0x^0
         Matcher mat=pattern.matcher(input);
         Monomial mon=new Monomial(0,0.0);
         double coef=0.0;
@@ -46,5 +56,18 @@ public class Polynomial {
             }
         }
         return s;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Polynomial that = (Polynomial) o;
+        return Objects.equals(polinom, that.polinom) && Objects.equals(pattern, that.pattern);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(polinom, pattern);
     }
 }

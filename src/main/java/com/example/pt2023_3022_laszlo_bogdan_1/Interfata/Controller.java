@@ -1,10 +1,12 @@
-package com.example.pt2023_3022_laszlo_bogdan_1;
+package com.example.pt2023_3022_laszlo_bogdan_1.Interfata;
 
+
+import com.example.pt2023_3022_laszlo_bogdan_1.App.Polynomial;
 
 public class Controller {
     View view;
     Operation op;
-    Controller(View view,Operation op){
+    public Controller(View view, Operation op){
         this.op=op;
         this.view=view;
 
